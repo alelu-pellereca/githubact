@@ -35,4 +35,6 @@ jobs:
         run: npm run test
 
       - name: Run echo
-        run: echo "Hola"
+        run: echo "Hola Test estoy funcionando"
+      - name: Enviar email
+        run: echo "Esto se hace luego"
