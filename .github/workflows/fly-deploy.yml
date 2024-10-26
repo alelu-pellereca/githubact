@@ -7,7 +7,7 @@ on:
       - CICD
 jobs:
   deploy:
-    name: Deploy app
+    name: Deploy app fly
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
