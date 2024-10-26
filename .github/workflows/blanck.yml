@@ -23,7 +23,7 @@ jobs:
         run: docker build -t alepellereca/imagenfront:latest .
       - name: Push frontend
         run: docker push alepellereca/imagenfront:latest
-   imagenback:
+  imagenback:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
