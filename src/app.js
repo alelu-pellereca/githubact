@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({ message: 'Hello World gral!' });
+    res.json({ message: 'Hello World FLY!' });
 });
 
 app.post('/echo', (req, res) => {
