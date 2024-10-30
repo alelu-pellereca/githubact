@@ -6,7 +6,6 @@ services:
       - "3001:3000"  
     volumes: 
     - .:/opt
-
   imagenback:
     image: alepellereca/imagenback:2
     restart: always
