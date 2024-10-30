@@ -7,7 +7,7 @@ on:
       - deploy-gitactions
 jobs:
   deploy:
-    name: Deploy app
+    name: Deploy app.
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
