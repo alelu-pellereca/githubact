@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build Frontend.
-        run: docker build -t alepellereca/imagenfront:1 .
+        run: docker build -t alepellereca/imagenfront:2 .
       - name: Push frontend.
-        run: docker push alepellereca/imagenfront:1
+        run: docker push alepellereca/imagenfront:2
   imagenback:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build Backend.
-        run: docker build -t alepellereca/imagenback:1 .
+        run: docker build -t alepellereca/imagenback:2 .
       - name: Push backend.
-        run: docker push alepellereca/imagenback:1
+        run: docker push alepellereca/imagenback:2
