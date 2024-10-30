@@ -1,38 +1,30 @@
 const express = require('express');
+const cors = require('cors')
+
 const app = express();
 app.use(express.json());
+app.use(cors())
+
+// Ruta básica
+app.get('/microservicio_1', async (req, res) => {
+    const response = await fetch('http://frontend:3001')
+    const responseAux = await response.json()
+    res.status(200).json({ message: responseAux.message });
+});
+app.get('/microservicio_2', async (req, res) => {
+    const response = await fetch('http://backend:8081')
+    const responseAux = await response.json()
+    res.status(200).json({ message: responseAux.message });
+});
 
 app.get('/', (req, res) => {
-    res.json({ message: 'Hello World gral!' });
+    res.status(200).json({ message: 'Hello World from microservicioEntrada!' });
 });
 
+// Ruta de ejemplo para pruebas
 app.post('/echo', (req, res) => {
-    res.json(req.body);
+    const { body } = req;
+    res.status(200).json(body);
 });
-
-// Frontend
-app.get('/frontend', (req, res) => {
-    res.json({ image: 'alepellereca/imagenfront:latest', description: 'Frontend' });
-});
-
-// Backend
-app.get('/backend', (req, res) => {
-    res.json({ image: 'alepellereca/imagenback:latest', description: 'Backend' });
-});
-
-// Función para iniciar el servidor en un puerto específico
-const startServer = (port, description) => {
-    const server = express();
-    server.get('/', (req, res) => {
-        res.json({ message: `Server running on port ${port}: ${description}` });
-    });
-    
-    server.listen(port, () => {
-        console.log(`Server running on port ${port}`);
-    });
-};
-
-startServer(3001, 'Frontend');
-startServer(8081, 'Backend');
 
 module.exports = app;
